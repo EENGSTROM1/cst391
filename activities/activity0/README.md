@@ -2,9 +2,10 @@
 
 **GitHub Repository URL:** [Github](https://github.com/EENGSTROM1/cst391.git) 
 
-
 **Author:** Eric Engstrom  
-**Date:** 01 February 2026  
+**Course:** CST 391  
+**Assignment:** Activity 1
+**Date:** February 1, 2026  
 
 ---
 
