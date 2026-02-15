@@ -1,0 +1,34 @@
+<div class="list-group" *ngIf="selectedAlbum == null">
+
+  <div
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let album of albums">
+
+    <span
+      style="cursor:pointer"
+      (click)="onSelectAlbum(album)">
+      {{ album.title }} ({{ album.year }})
+    </span>
+
+    <div>
+      <button
+        class="btn btn-sm btn-warning me-2"
+        [routerLink]="['/edit', album.artistId, album.id]">
+        Edit
+      </button>
+
+      <button
+        class="btn btn-sm btn-danger"
+        [routerLink]="['/delete', album.artistId, album.id]">
+        Delete
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<app-display-album
+  *ngIf="selectedAlbum"
+  [album]="selectedAlbum">
+</app-display-album>
