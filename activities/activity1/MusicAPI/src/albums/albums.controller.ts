@@ -35,6 +35,35 @@ export const readAlbumsByArtist: RequestHandler = async (req: Request, res: Resp
   }
 };
 
+/* ✅ NEW — READ SINGLE ALBUM BY ARTIST + ALBUM ID */
+export const readSingleAlbum: RequestHandler = async (req: Request, res: Response) => {
+  try {
+    const artist = req.params.artist;
+    const albumId = parseInt(req.params.albumId as string);
+
+    if (Number.isNaN(albumId)) {
+      throw new Error("Integer expected for albumId");
+    }
+
+    const albums = await AlbumDao.readAlbumsByArtist(artist);
+
+    const album = albums.find(a => a.albumId === albumId);
+
+    if (!album) {
+      return res.status(404).json({ message: "Album not found" });
+    }
+
+    const tracks = await TracksDao.readTracksByAlbumId(album.albumId);
+    album.tracks = tracks;
+
+    res.status(200).json(album);
+
+  } catch (error) {
+    console.error("[albums.controller][readSingleAlbum][Error] ", error);
+    res.status(500).json({ message: "There was an error when fetching album" });
+  }
+};
+
 export const readAlbumsByArtistSearch: RequestHandler = async (req: Request, res: Response) => {
   try {
     const search = `%${req.params.search}%`;

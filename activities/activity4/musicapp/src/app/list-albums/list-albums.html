@@ -1,0 +1,26 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">
+    Albums for {{ artistName }}
+  </h2>
+
+  <div class="list-group">
+
+    <a
+      class="list-group-item list-group-item-action"
+      *ngFor="let album of albums"
+      [routerLink]="['/album', artistName, album.albumId]">
+
+      <div class="fw-bold">
+        {{ album.title }}
+      </div>
+
+      <small class="text-muted">
+        Released: {{ album.year }}
+      </small>
+
+    </a>
+
+  </div>
+
+</div>

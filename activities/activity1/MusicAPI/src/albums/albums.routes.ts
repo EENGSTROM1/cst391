@@ -9,6 +9,9 @@ router.get("/albums", AlbumsController.readAlbums);
 // GET albums by artist (path param)
 router.get("/albums/artist/:artist", AlbumsController.readAlbumsByArtist);
 
+// ✅ NEW — GET single album by artist + albumId
+router.get("/albums/artist/:artist/:albumId", AlbumsController.readSingleAlbum);
+
 // GET albums by artist search
 router.get("/albums/search/artist/:search", AlbumsController.readAlbumsByArtistSearch);
 

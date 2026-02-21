@@ -1,0 +1,48 @@
+<div class="container mt-4">
+
+  <div *ngIf="album">
+
+    <h2>{{ album.title }}</h2>
+
+    <p><strong>Artist:</strong> {{ album.artist }}</p>
+    <p><strong>Year:</strong> {{ album.year }}</p>
+
+    <img
+      *ngIf="album.image"
+      [src]="album.image"
+      style="max-height:300px;"
+      class="mb-3"
+    />
+
+    <!-- EDIT + DELETE BUTTONS -->
+    <div class="mt-3">
+      <a
+        class="btn btn-warning me-2"
+        [routerLink]="['/edit', album.artist, album.albumId]">
+        Edit Album
+      </a>
+
+      <a
+        class="btn btn-danger"
+        [routerLink]="['/delete', album.artist, album.albumId]">
+        Delete Album
+      </a>
+    </div>
+
+    <hr>
+
+    <h4>Tracks</h4>
+
+    <ul>
+      <li *ngFor="let track of album.tracks">
+        {{ track.number }}. {{ track.title }}
+      </li>
+    </ul>
+
+  </div>
+
+  <div *ngIf="!album">
+    Loading album...
+  </div>
+
+</div>

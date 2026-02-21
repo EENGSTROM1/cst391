@@ -1,0 +1,55 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}
+  </h1>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="/list-artists">My Music</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+
+        <!-- GCU External Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.gcu.edu/" target="_blank">
+            GCU Home Page
+          </a>
+        </li>
+
+        <!-- Create Route -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create" routerLinkActive="active">
+            Create
+          </a>
+        </li>
+
+        <!-- Artist List Route -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/list-artists" routerLinkActive="active">
+            Artist List
+          </a>
+        </li>
+
+        <!-- About Button -->
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer" (click)="displayVersion()">
+            About
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
