@@ -1,0 +1,52 @@
+<h2 class="mb-3">Create Product</h2>
+
+<form (ngSubmit)="save()" #formRef="ngForm">
+
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input class="form-control"
+           name="name"
+           [(ngModel)]="product.name"
+           required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control"
+              name="description"
+              [(ngModel)]="product.description"
+              required>
+    </textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="number"
+           class="form-control"
+           name="price"
+           [(ngModel)]="product.price"
+           required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Quantity</label>
+    <input type="number"
+           class="form-control"
+           name="quantity"
+           [(ngModel)]="product.quantity"
+           required>
+  </div>
+
+  <button type="submit"
+          class="btn btn-primary me-2"
+          [disabled]="!formRef.valid">
+    Save
+  </button>
+
+  <button type="button"
+          class="btn btn-secondary"
+          (click)="cancel()">
+    Cancel
+  </button>
+
+</form>

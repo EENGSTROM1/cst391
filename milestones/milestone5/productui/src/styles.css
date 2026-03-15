@@ -1,0 +1,6 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Global body spacing */
+body {
+  padding-top: 20px;
+}
